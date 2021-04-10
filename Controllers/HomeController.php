@@ -1,11 +1,14 @@
 <?php
     namespace controllers;
 
-    class HomeController{
+use Controllers\VinylsControllers;
+
+class HomeController{
 
         public function Index($message = ""){
 
-            echo "hpña";
+            $vinylsController = new VinylsControllers();
+            $vinylsController->ShowListView();
         }
     }
 ?>
