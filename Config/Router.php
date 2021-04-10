@@ -11,11 +11,13 @@
 
             $methodName = $request->getMethod();
 
-            $methodParameters = $request->getparameters();
+            $methodParameters = $request->getParameters();
 
             $controllerClassName = "Controllers\\".$controllerName;
 
             $controller = new $controllerClassName;
+
+            echo "ACA ROUTER ->  $methodParameters <br>";
 
             if(!isset($methodParameters))
                 call_user_func(array($controller, $methodName));
