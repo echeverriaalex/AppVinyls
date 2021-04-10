@@ -1,9 +1,9 @@
 <?php
     namespace controllers;
 
-use Controllers\VinylsControllers;
+    use Controllers\VinylsControllers;
 
-class HomeController{
+    class HomeController{
 
         public function Index($message = ""){
 
