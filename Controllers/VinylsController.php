@@ -1,9 +1,9 @@
 <?php
     namespace Controllers;
     use Models\Vinyl;
-    use VinylPDO;
+    use PDO\VinylPDO;
 
-    class VinylsControllers{
+    class VinylsController{
 
         private $vinylsPDO;
 
@@ -13,18 +13,28 @@
 
         public function ShowEditView($vinyl){require_once(VIEWS_PATH."edit-vinyl.php");}
 
-        public function ShowListView(){require_once(VIEWS_PATH."list-vinyl.php");}
+        public function ShowListView(){
+        
+            $vinylsList = array();
+            require_once(VIEWS_PATH."list-vinyl.php");
+        }
+
+        public function ShowArticlesView(){
+
+            $vinylsList = array();
+            require_once(VIEWS_PATH."list-vinyl-articule.php");
+        }
 
 
-        public function add($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations){
+        public function Add($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations){
             
-            $exists = $this->vinylsPDO->SearchVinylByName($diskName);
+            $exists = false; // $this->vinylsPDO->SearchVinylByName($diskName);
 
             if(!$exists){
 
                 $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations);
                 $this->vinylsPDO->Add($vinyl);
-                $this->ShowListView();
+                //$this->ShowListView();
             }
             else{
 
