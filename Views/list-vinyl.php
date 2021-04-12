@@ -15,7 +15,7 @@
 
         <tbody>
             <?php 
-                if($vinylsList){
+                if(!empty($vinylsList)){
                     foreach($vinylsList as $vinyl){ 
             ?>
                         <td> <?php echo $vinyl->getArtist(); ?> </td>
@@ -30,6 +30,10 @@
                         <td> <?php echo $vinyl->getObservations(); ?> </td>
             <?php 
                     }
+                }
+                else{
+
+                    echo "no data";
                 }
             ?>
         </tbody>    

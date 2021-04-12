@@ -1,4 +1,5 @@
-    <form action="" method="get">
+<div>
+    <form action="<?php echo FRONT_ROOT?>Vinyls/Add" method="POST">
         <p>cargar discos</p><hr>
         <label for="Artista o Banda"> Artista o Banda</label><br>
         <input type="Artista o banda" id="Artista o Banda" name="Artista o Banda" placeholder="artista"><br>
@@ -59,3 +60,4 @@
 
         <button type="submit"> Add vinyl</button>
     </form>
+</div>
