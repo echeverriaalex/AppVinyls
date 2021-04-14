@@ -19,13 +19,13 @@
             $this->setArtist($artist);
             $this->setDiskName($diskName);
             $this->setYearEdition($yearEdition);
-            $this->setCounrtyEdition($countryEdition);
+            $this->setCountryEdition($countryEdition);
             $this->setStatusBox($statusBox);
             $this->setStatusDisk($statusDisk);
             $this->setDiskFormat($diskFormat);
             $this->setGender($gender);
             $this->setVelocity($velocity);
-            $this->setObservations($observations);
+            $this->setObservation($observations);
         }
         
         public function setArtist($artist){$this->artist = $artist;}
@@ -37,7 +37,7 @@
         public function setYearEdition($yearEdition){$this->yearEdition = $yearEdition;}
         public function getYearEdition(){return $this->yearEdition;}
 
-        public function setCounrtyEdition($countryEdition){$this->countryEdition = $countryEdition;}
+        public function setCountryEdition($countryEdition){$this->countryEdition = $countryEdition;}
         public function getCountryEdition(){return $this->countryEdition;}
         
         public function setStatusBox($statusBox){$this->statusBox = $statusBox;}
@@ -55,7 +55,7 @@
         public function setVelocity($velocity){$this->velocity = $velocity;}
         public function getVelocity(){return $this->velocity;}
         
-        public function setObservations($observations){$this->observations = $observations;}
+        public function setObservation($observations){$this->observations = $observations;}
         public function getObservation(){return $this->observations;}
     }
 ?>
