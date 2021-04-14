@@ -18,16 +18,18 @@
                 if(!empty($vinylsList)){
                     foreach($vinylsList as $vinyl){ 
             ?>
+                    <tr>
                         <td> <?php echo $vinyl->getArtist(); ?> </td>
                         <td> <?php echo $vinyl->getDiskName(); ?> </td>
                         <td> <?php echo $vinyl->getYearEdition(); ?> </td>
-                        <td> <?php echo $vinyl->getCounrtyEdition(); ?> </td>
+                        <td> <?php echo $vinyl->getCountryEdition(); ?> </td>
                         <td> <?php echo $vinyl->getStatusBox(); ?> </td>
                         <td> <?php echo $vinyl->getStatusDisk(); ?> </td>
                         <td> <?php echo $vinyl->getDiskFormat(); ?> </td>
                         <td> <?php echo $vinyl->getGender(); ?> </td>
                         <td> <?php echo $vinyl->getVelocity(); ?> </td>
-                        <td> <?php echo $vinyl->getObservations(); ?> </td>
+                        <td> <?php echo $vinyl->getObservation(); ?> </td>
+                    </tr>
             <?php 
                     }
                 }
