@@ -14,3 +14,8 @@ create table if not exists Vinyl(
     velocity varchar(30), 
     observations varchar(140)
 );
+
+select * from Vinyl;
+
+insert into Vinyl(artist, diskName, yearEdition, countryEdition, statusBox, statusDisk, diskFormat, gender, velocity, observations)  values ("queen", "bohemian rapsody", 1991, "onglaterra", "excelente", "excelente", "desconocido", "rock", "normal", "extra");
+insert into Vinyl(artist, diskName, yearEdition, countryEdition, statusBox, statusDisk, diskFormat, gender, velocity, observations)  values ("acdc", "black in black", 2005, "estados unidos", "excelente", "bueno", "desconocido", "rock", "normal", "extra");
