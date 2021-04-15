@@ -2,7 +2,7 @@
     namespace Config;
 
     define("ROOT", dirname(__DIR__)."/");
-    define("FRONT_ROOT", "/AppVinilos/");
+    define("FRONT_ROOT", "/AppVinyls/");
     define("VIEWS_PATH", "Views/");
 
     define("DB_HOST","localhost");
