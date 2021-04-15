@@ -9,7 +9,7 @@
 
         public function __construct(){$this->vinylsPDO = new VinylPDO();}
 
-        public function ShowAddView(){require_once(VIEWS_PATH."add-vinyl.php");}
+        public function ShowAddView($message = ""){require_once(VIEWS_PATH."add-vinyl.php");}
 
         public function ShowEditView($vinyl){require_once(VIEWS_PATH."edit-vinyl.php");}
 
@@ -34,9 +34,12 @@
                 /*
                 $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations);
                 $this->vinylsPDO->Add($vinyl);
-                $this->ShowListView();
+                $message = "Vinyl successfully added";
+                //$this->ShowAddView();
                 */
             //}
+
+            
            //else{
 
                // echo"<script> alert('Error: Cannot add vinyl')</script>";
