@@ -1,5 +1,5 @@
-<?php
-    namespace Controllers;    
+<?php 
+    namespace Controllers;
     use PDO\VinylPDO;
     use Models\Vinyl;
     
@@ -25,9 +25,14 @@
             require_once(VIEWS_PATH."list-vinyl-articule.php");
         }
 
-        public function Add($artist, $diskName/*, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations*/){
+        public function Add($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations){
             
             //$exists = false;  $this->vinylsPDO->SearchVinylByName($diskName);
+            $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations);
+            $this->vinylsPDO->Add($vinyl);
+            $message = "Vinyl successfully added";
+            $this->ShowAddView($message);
+            //$this->ShowArticlesView();
 
             //if(!$exists){
 
@@ -45,10 +50,6 @@
                // echo"<script> alert('Error: Cannot add vinyl')</script>";
                 //$this->ShowAddView();
             //}
-        }
-
-        public function list(){
-
         }
 
         public function Delete(){
