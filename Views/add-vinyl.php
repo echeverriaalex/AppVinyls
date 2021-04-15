@@ -1,9 +1,16 @@
+<?php
+    require_once("nav.php");
+?>
+
 <div>
     <h2> Add vinyl</h2>
 
-    <form action="<?php echo FRONT_ROOT?>Vinilos/Add" method="POST">
+    <form action="<?php echo FRONT_ROOT?>Vinyls/Add" method="POST">
 
-        
+        <div>
+            <h1> Add vinyl </h1>
+        </div>
+
         <div>           
             <label for="artist"> Artist </label>
             <input type="artist" id="artist" name="artist">
@@ -94,4 +101,14 @@
             <button type="submit"> Add vinyl</button>
         </div>
     </form>
+
+    <?php
+        if(isset($message)){
+    ?>
+        <div>
+            <p> <?php echo $message ?></p>
+        </div>
+    <?php
+        }
+    ?>
 </div>
