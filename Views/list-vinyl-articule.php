@@ -1,3 +1,7 @@
+<?php
+    require_once("nav.php");
+?>
+
 <main class="main">
     <div class="articulo">  
         <?php

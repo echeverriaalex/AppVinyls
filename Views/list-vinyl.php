@@ -1,3 +1,7 @@
+<?php
+    require_once("nav.php");
+?>
+
 <div>
     <table>
         <thead>
