@@ -56,9 +56,7 @@
                     $vinyl->setGender($row['gender']);
                     $vinyl->setVelocity($row['velocity']);
                     $vinyl->setObservation($row['observations']);
-
-                    var_dump($vinyl);
-
+                    
                     array_push($vinylsList, $vinyl);
                 }
                 return $vinylsList;
@@ -71,7 +69,25 @@
 
         public function SearchVinylByName($diskName){
 
+            try{
+                $query = "SELECT * FROM ".$this->tableName." WHERE (diskName = :diskName);";
 
+                $parameters["diskName"] = $diskName;
+
+                $this->connection = Connection::getInstance();
+
+                $vinylResult = $this->connection->Execute($query, $parameters);
+
+                if(!empty($vinylResult)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }catch(Exception $ex){
+                
+                throw $ex;
+            }
         }
 
         public function Delete($vinylDiskName){
@@ -88,5 +104,4 @@
             }
         }
     }
-
 ?>
