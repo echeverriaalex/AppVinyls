@@ -1,20 +1,14 @@
 <?php
-    namespace controllers;
-
-    use Controllers\AlexController;
+    namespace Controllers;
 
     class HomeController{
 
         public function Index($message = ""){
 
-            //$vinylsController = new VinylsController();
+            $vinylsController = new VinylsController();
             //$vinylsController->ShowListView();
-            //$vinylsController->ShowAddView();
+            $vinylsController->ShowAddView();
             //$vinylsController->ShowArticlesView();
-
-            $controller = new AlexController();
-            $controller->ShowAddView();
-            //require_once(ROOT.FRONT_ROOT."alex-add.php");
         }
     }
 ?>
