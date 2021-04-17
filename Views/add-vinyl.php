@@ -13,12 +13,12 @@
 
         <div>           
             <label for="artist"> Artist </label>
-            <input type="artist" id="artist" name="artist">
+            <input type="text" id="artist" name="artist">
         </div>
 
         <div>
             <label for="diskName"> Disk name </label>
-            <input type="diskName" id=" diskName" name=" diskName"> 
+            <input type="text" id=" diskName" name=" diskName"> 
         </div>
         
         <div>
@@ -92,9 +92,16 @@
         </div>        
         
         <div>
+            <label> URL image</label>
+            <input type="text" name="urlImage">
+        </div>
+
+        <!--
+        <div>
             <h2>Select a file</h2>
             <input type="file" name="Foto">
-        </div>        
+        </div>
+        -->        
 
         <div>
             <button type="submit"> Add vinyl</button>
