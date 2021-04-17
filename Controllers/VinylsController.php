@@ -25,34 +25,36 @@
             require_once(VIEWS_PATH."list-vinyl-articule.php");
         }
 
-        public function Add($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations){
+        public function Add($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations, $urlImage){
             
-            //$exists = false;  $this->vinylsPDO->SearchVinylByName($diskName);
-            $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations);
-            $this->vinylsPDO->Add($vinyl);
-            $message = "Vinyl successfully added";
-            $this->ShowAddView($message);
-            //$this->ShowArticlesView();
+            $exists = $this->vinylsPDO->SearchVinylByName($diskName);
 
-            //if(!$exists){
-
-                /*
-                $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations);
+            if(!$exists){
+                
+                $vinyl = new Vinyl($artist, $diskName, $yearEdition, $countryEdition, $statusBox, $statusDisk, $diskFormat, $gender, $velocity, $observations, $urlImage);
                 $this->vinylsPDO->Add($vinyl);
                 $message = "Vinyl successfully added";
-                //$this->ShowAddView();
-                */
-            //}
-
-            
-           //else{
-
-               // echo"<script> alert('Error: Cannot add vinyl')</script>";
-                //$this->ShowAddView();
-            //}
+                $this->ShowAddView($message);
+            }
+            else{
+                echo"<script> alert('Error: Cannot add vinyl because it is exist.')</script>";
+                $message = 'Error: Cannot add vinyl because it is exist.';
+                $this->ShowAddView($message);
+            }
         }
 
-        public function Delete(){
+        public function Delete($diskName){
+
+            $delete = $this->vinylsPDO->Delete($diskName);
+
+            if($delete > 0){
+                $this->ShowArticlesView();
+            }
+            else{
+
+                echo "<script> alert('Error: Cannot delete vinyl. Please retry.'); </script>";
+                $this->ShowArticlesView();
+            }
 
         }
 
