@@ -13,8 +13,8 @@
         public function Add(Vinyl $vinyl){
 
             try{
-                $query = "INSERT INTO ".$this->tableName." (artist, diskName, yearEdition, countryEdition, statusBox, statusDisk, diskFormat, gender, velocity, observations) 
-                VALUES (:artist, :diskName, :yearEdition, :countryEdition, :statusBox, :statusDisk, :diskFormat, :gender, :velocity, :observations);";
+                $query = "INSERT INTO ".$this->tableName." (artist, diskName, yearEdition, countryEdition, statusBox, statusDisk, diskFormat, gender, velocity, observations, image_path) 
+                VALUES (:artist, :diskName, :yearEdition, :countryEdition, :statusBox, :statusDisk, :diskFormat, :gender, :velocity, :observations, :image_path);";
 
                 $parameters["artist"] = $vinyl->getArtist();
                 $parameters["diskName"] = $vinyl->getDiskName();
@@ -26,6 +26,7 @@
                 $parameters["gender"] = $vinyl->getGender();
                 $parameters["velocity"] = $vinyl->getVelocity();
                 $parameters["observations"] = $vinyl->getObservation();
+                $parameters["image_path"] = $vinyl->getUrlImage();
 
                 $this->connection = Connection::getInstance();
                 $this->connection->ExecuteNonQuery($query, $parameters);
@@ -56,6 +57,7 @@
                     $vinyl->setGender($row['gender']);
                     $vinyl->setVelocity($row['velocity']);
                     $vinyl->setObservation($row['observations']);
+                    $vinyl->setUrlImage($row['image_path']);
                     
                     array_push($vinylsList, $vinyl);
                 }
@@ -71,11 +73,9 @@
 
             try{
                 $query = "SELECT * FROM ".$this->tableName." WHERE (diskName = :diskName);";
-
                 $parameters["diskName"] = $diskName;
 
                 $this->connection = Connection::getInstance();
-
                 $vinylResult = $this->connection->Execute($query, $parameters);
 
                 if(!empty($vinylResult)){
@@ -90,11 +90,11 @@
             }
         }
 
-        public function Delete($vinylDiskName){
+        public function Delete($diskName){
 
             try{
-                $query = "DELETE FROM ".$this->tableName." WHERE (diskName = :vinylDiskName);";
-                $parameters['diskName'] = $vinylDiskName;
+                $query = "DELETE FROM ".$this->tableName." WHERE (diskName = :diskName);";
+                $parameters['diskName'] = $diskName;
                 $this->connection = Connection::getInstance();
                 $deletedCount = $this->connection->ExecuteNonQuery($query, $parameters);
                 return $deletedCount;
