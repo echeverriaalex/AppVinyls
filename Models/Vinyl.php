@@ -13,8 +13,9 @@
         private $gender;
         private $velocity;
         private $observations;
+        private $urlImage;
 
-        public function __construct($artist = '', $diskName = '', $yearEdition = '', $countryEdition = '', $statusBox = '', $statusDisk = '', $diskFormat = '', $gender = '', $velocity = '', $observations = ''){
+        public function __construct($artist = '', $diskName = '', $yearEdition = '', $countryEdition = '', $statusBox = '', $statusDisk = '', $diskFormat = '', $gender = '', $velocity = '', $observations = '', $urlImage = ''){
             
             $this->setArtist($artist);
             $this->setDiskName($diskName);
@@ -26,6 +27,7 @@
             $this->setGender($gender);
             $this->setVelocity($velocity);
             $this->setObservation($observations);
+            $this->setUrlImage($urlImage);
         }
         
         public function setArtist($artist){$this->artist = $artist;}
@@ -57,5 +59,8 @@
         
         public function setObservation($observations){$this->observations = $observations;}
         public function getObservation(){return $this->observations;}
+
+        public function setUrlImage($urlImage){$this->urlImage = $urlImage;}
+        public function getUrlImage(){return $this->urlImage;}
     }
 ?>
