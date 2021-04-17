@@ -15,6 +15,8 @@
             <th> Gender </th>
             <th> Velocity </th>
             <th> Observations </th>
+            <th> Image</th>
+            <th> Options</th>
         </thead>
 
         <tbody>
@@ -33,6 +35,19 @@
                         <td> <?php echo $vinyl->getGender(); ?> </td>
                         <td> <?php echo $vinyl->getVelocity(); ?> </td>
                         <td> <?php echo $vinyl->getObservation(); ?> </td>
+                        <td> <img src="<?php echo $vinyl->getUrlImage(); ?>">  </td>
+
+                        <td>
+                            <form action="<?php echo FRONT_ROOT ?>Vinyls/Delete" method="POST">
+                                <input type="hidden" name="diskName" value="<?php echo $vinyl->getDiskName(); ?>">
+                                <button type="submit" > Eliminar </button>
+                            </form>
+                            
+                            <form action="<?php echo FRONT_ROOT ?>Vinyls/Edit" method="POST">
+                                <input type="hidden" name="diskName" value="<?php echo $vinyl->getDiskName(); ?>">
+                                <button type="submit" > Modificar </button>
+                            </form>
+                        </td>
                     </tr>
             <?php 
                     }
